@@ -9,11 +9,11 @@ const SetupPage = () => {
 
   useEffect(() => {
     if (!isOpen) {
-      onOpen()
+      onOpen();
     }
-  }, [isOpen,onOpen]);
+  }, [isOpen, onOpen]);
 
-  return <div className="p-5"></div>;
+  return null;
 };
 
 export default SetupPage;
