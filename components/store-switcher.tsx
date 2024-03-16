@@ -116,17 +116,6 @@ export default function StoreSwitcher({
           </Command>
         </PopoverContent>
       </Popover>
-
-      <Button
-        className="mx-5"
-        onClick={() => {
-          setOpen(false);
-          storeModal.onOpen();
-        }}
-      >
-        <PlusCircle className="mr-2 h-5 w-5" />
-        Create Store
-      </Button>
     </>
   );
 }
