@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ImagePlus, Trash } from "lucide-react";
 
 interface ImageUploadProps {
-  disabled?: boolean;
+  disabled: boolean;
   onChange: (value: string) => void;
   onRemove: (value: string) => void;
   value: string[];
