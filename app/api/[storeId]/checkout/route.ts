@@ -80,7 +80,7 @@ export async function POST(
     };
 
     const token = await snap.createTransactionToken(parameter)
-    console.log(token);
+    console.log(`Midtrans token : ${token}`);
 
     return NextResponse.json({ token }, { headers: corsHeaders })
   } catch (error) {
