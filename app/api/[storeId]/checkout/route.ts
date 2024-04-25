@@ -1,6 +1,7 @@
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
+// [IMPORT ERROR (IMPORT NOT DETECTED)]
 // import Midtrans from "midtrans-client"
 var Midtrans = require("midtrans-client");
 
@@ -30,17 +31,18 @@ export async function POST(
   try {
 
     const quantity = 1;
-    const { id, productName, price } = await req.json();
-
-    if (!id) {
+    const { data } = await req.json();
+    console.log(data);
+       
+    if (!data.id) {
       return new NextResponse("ID required", { status: 400 })
     }
 
-    if (!productName) {
+    if (!data.productName) {
       return new NextResponse("Product Name required", { status: 400 })
     }
 
-    if (!price) {
+    if (!data.price) {
       return new NextResponse("Price required", { status: 400 })
     }
 
@@ -50,7 +52,7 @@ export async function POST(
         storeId: params.storeId,
         isPaid: false,
         orderItems: {
-          create: id.map((productId: string) => ({
+          create: data.id.map((productId: string) => ({
             product: {
               connect: {
                 id: productId
@@ -69,13 +71,13 @@ export async function POST(
 
     let parameter = {
       item_details: {
-        name: productName,
-        price: Number(price),
+        name: data.id,
+        price: Number(data.price),
         quantity: quantity
       },
       transaction_details: {
         order_id: order_id?.id,
-        gross_amount: Number(price) * Number(quantity)
+        gross_amount: Number(data.price * quantity)
       }
     };
 

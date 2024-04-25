@@ -1,3 +1,9 @@
+/**
+ * Komponen Navbar digunakan untuk menampilkan navigasi utama dan switcher antar toko.
+ * Jika pengguna belum masuk, akan diarahkan ke halaman sign-in.
+ * @returns {JSX.Element} - Komponen Navbar.
+ */
+
 import { UserButton, auth } from "@clerk/nextjs";
 import { MainNav } from "./main-nav";
 
@@ -8,10 +14,12 @@ import StoreSwitcher from "@/components/store-switcher";
 const Navbar = async () => {
   const { userId } = auth();
 
+  // Jika pengguna belum masuk, diarahkan ke halaman sign-in
   if (!userId) {
     redirect("/sign-in");
   }
 
+  // Mengambil daftar toko yang dimiliki pengguna
   const stores = await prismadb.store.findMany({
     where: {
       userId,

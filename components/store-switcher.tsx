@@ -30,6 +30,15 @@ interface StoreSwitcherProps extends PopoverTriggerProps {
   items: Record<string, any>[];
 }
 
+/**
+ * Komponen StoreSwitcher digunakan untuk mengelola switcher antar toko.
+ * Ini memungkinkan pengguna untuk memilih toko dari daftar toko yang tersedia.
+ * @param {Object} props - Props untuk komponen StoreSwitcher.
+ * @param {string} [props.className] - Kelas tambahan untuk styling.
+ * @param {Object[]} props.items - Daftar toko yang tersedia untuk dipilih.
+ * @returns {JSX.Element} - Komponen StoreSwitcher.
+ */
+
 export default function StoreSwitcher({
   className,
   items = [],
@@ -49,6 +58,7 @@ export default function StoreSwitcher({
 
   const [open, setOpen] = React.useState(false);
 
+  // Fungsi untuk memilih toko dan mengubah URL dengan ID toko yang dipilih
   const onStoreSelect = (store: { value: string; label: string }) => {
     setOpen(false);
     router.push(`/${store.value}`);
@@ -71,6 +81,7 @@ export default function StoreSwitcher({
 
             <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
+          {/* Daftar toko */}
         </PopoverTrigger>
 
         <PopoverContent className="w-[200px] p-0">
@@ -108,6 +119,7 @@ export default function StoreSwitcher({
                     storeModal.onOpen();
                   }}
                 >
+                  {/* Tombol untuk membuat toko baru */}
                   <PlusCircle className="mr-2 h-5 w-5" />
                   Create Store
                 </CommandItem>
