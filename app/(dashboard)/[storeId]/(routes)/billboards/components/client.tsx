@@ -25,7 +25,7 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
           description="Manage your store billboard here"
         />
         <Button
-          variant="outline"
+          variant="secondary"
           onClick={() => router.push(`/${params.storeId}/billboards/new`)}
         >
           <Plus className="mr-2 h-4 w-4" />

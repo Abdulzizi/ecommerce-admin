@@ -31,28 +31,22 @@ export async function POST(
   try {
 
     const quantity = 1;
-    const { data } = await req.json();
-    console.log(data);
-       
-    if (!data.id) {
-      return new NextResponse("ID required", { status: 400 })
+    const { id, productName, price } = await req.json(); // Destructure the data object
+    console.log(`ID : ${id}, PRODUCT : ${productName}, PRICE : ${price}`);
+
+    // Check if required fields are present
+    if (!id || !productName || !price) {
+      return new NextResponse("ID, Product Name, and Price are required", { status: 400 });
     }
 
-    if (!data.productName) {
-      return new NextResponse("Product Name required", { status: 400 })
-    }
-
-    if (!data.price) {
-      return new NextResponse("Price required", { status: 400 })
-    }
-
+    /*
     // create order
     const order = await prismadb.order.create({
       data: {
         storeId: params.storeId,
         isPaid: false,
         orderItems: {
-          create: data.id.map((productId: string) => ({
+          create: id.map((productId: string) => ({
             product: {
               connect: {
                 id: productId
@@ -69,16 +63,46 @@ export async function POST(
       }
     });
 
-    let parameter = {
-      item_details: {
-        name: data.id,
-        price: Number(data.price),
-        quantity: quantity
+    */
+
+    // Membuat order
+    const order = await prismadb.order.create({
+      data: {
+        storeId: params.storeId,
+        isPaid: false,
       },
-      transaction_details: {
-        order_id: order_id?.id,
-        gross_amount: Number(data.price * quantity)
-      }
+    });
+
+    // Membuat orderItems
+    await Promise.all(id.map(async (productId: string) => {
+      const orderItem = await prismadb.orderItem.create({
+        data: {
+          orderId: order.id,
+          productId: productId,
+        },
+      });
+      return orderItem;
+    }));    
+
+    // Calculate gross amount
+    const grossAmount = price.reduce((acc: number, curr: string) => acc + Number(curr), 0);
+
+    // Create item details
+    const itemDetails = {
+      name: productName.join(', '), // Join product names into a single string
+      price: grossAmount, // Use gross amount as price
+      quantity: quantity
+    };
+
+    // Create transaction details
+    const transactionDetails = {
+      order_id: order.id, //? diambil dari DB, Tergenerate ketika menekan tombol checkout
+      gross_amount: grossAmount
+    };
+
+    const parameter = {
+      item_details: itemDetails,
+      transaction_details: transactionDetails
     };
 
     const token = await snap.createTransactionToken(parameter)
