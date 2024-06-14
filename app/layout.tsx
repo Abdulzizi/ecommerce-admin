@@ -18,7 +18,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ModalProvider } from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 
-import { ThemeProvider } from "@/providers/theme-provider"
+import { ThemeProvider } from "@/providers/theme-provider";
+
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider >
+      <SpeedInsights />
       {/* Set the HTML lang attribute to English */}
       <html lang="en">
         <body className={inter.className}>
