@@ -17,7 +17,6 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-
 export async function OPTIONS(req: Request) {
   return new NextResponse(null, {
     headers: corsHeaders
@@ -38,32 +37,6 @@ export async function POST(
     if (!id || !productName || !price) {
       return new NextResponse("ID, Product Name, and Price are required", { status: 400 });
     }
-
-    /*
-    // create order
-    const order = await prismadb.order.create({
-      data: {
-        storeId: params.storeId,
-        isPaid: false,
-        orderItems: {
-          create: id.map((productId: string) => ({
-            product: {
-              connect: {
-                id: productId
-              }
-            }
-          }))
-        }
-      }
-    });
-
-    const order_id = await prismadb.orderItem.findFirst({
-      where: {
-        orderId: order.id
-      }
-    });
-
-    */
 
     // Membuat order
     const order = await prismadb.order.create({
@@ -105,7 +78,7 @@ export async function POST(
       transaction_details: transactionDetails
     };
 
-    const token = await snap.createTransactionToken(parameter)
+    const token = await snap.createTransactionRedirectUrl(parameter)
     console.log(`Midtrans token : ${token}`);
 
     return NextResponse.json({ token }, { headers: corsHeaders })

@@ -1,12 +1,3 @@
-/**
- * RootLayout is the root layout component for the admin dashboard. It wraps
- * the entire application with various providers and sets up the global
- * appearance of the application.
- *
- * @param {Object} props - Component props.
- * @param {React.ReactNode} props.children - The child components to render.
- * @return {React.ReactElement} The rendered component.
- */
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -29,13 +20,6 @@ export const metadata: Metadata = {
   description: "Admin Dashboard",
 };
 
-/**
- * The root layout component for the admin dashboard.
- *
- * @param {Object} props - The component props.
- * @param {React.ReactNode} props.children - The child components to render.
- * @return {React.ReactElement} The rendered component.
- */
 export default function RootLayout({
   children,
 }: Readonly<{

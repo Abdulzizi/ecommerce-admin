@@ -10,6 +10,7 @@ const nextConfig = {
       },
     ],
   },
+  swcMinify: true,
   async headers() {
     return [
       {

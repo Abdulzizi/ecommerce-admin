@@ -1,16 +1,10 @@
 "use client";
 
-/**
- * Komponen MainNav digunakan untuk menampilkan navigasi utama berdasarkan path dan store ID.
- * @param {Object} props - Props untuk komponen MainNav.
- * @param {string} [props.className] - Kelas tambahan untuk styling.
- * @returns {JSX.Element} - Komponen MainNav.
- */
-
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export function MainNav({
   className,
@@ -18,6 +12,12 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const params = useParams();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Daftar rute navigasi utama
   const routes = [

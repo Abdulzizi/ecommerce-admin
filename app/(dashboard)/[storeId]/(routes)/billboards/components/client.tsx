@@ -15,7 +15,9 @@ interface BillboardClientProps {
 
 export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
   const router = useRouter();
-  const params = useParams();
+  const params = useParams(); 
+
+  if (!data) return null
 
   return (
     <>
