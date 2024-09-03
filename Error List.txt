@@ -1,4 +1,0 @@
-ERROR LIST : 
-
-- Gabisa order lebih dari 1 barang.(Selesai)
-- Ubah status pembayaran jadi true

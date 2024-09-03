@@ -13,11 +13,8 @@ export function MainNav({
   const pathname = usePathname();
   const params = useParams();
 
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  
 
   // Daftar rute navigasi utama
   const routes = [
