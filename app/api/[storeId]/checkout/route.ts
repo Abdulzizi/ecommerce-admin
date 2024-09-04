@@ -29,6 +29,7 @@ export async function POST(
 ) {
   try {
 
+    //? quantity fix 1 karena tidak ada sistem stok
     const quantity = 1;
     const { id, productName, price } = await req.json(); // Destructure the data object
     console.log(`ID : ${id}, PRODUCT : ${productName}, PRICE : ${price}`);
