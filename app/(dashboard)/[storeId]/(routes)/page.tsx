@@ -29,22 +29,21 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   // console.log(salesCount);
   // console.log(productCount);
 
-  /**
+  
   const data = [
-    { name: "Jan", total: 120000 },
-    { name: "Feb", total: 1000000 },
-    { name: "Mar", total: 1200000 },
-    { name: "Apr", total: 1234200 },
+    { name: "Jan", total: 1340000 },
+    { name: "Feb", total: 1100000 },
+    { name: "Mar", total: 1010000 },
+    { name: "Apr", total: 1022200 },
     { name: "May", total: 523000 },
-    { name: "Jun", total: 1032000 },
+    { name: "Jun", total: 103200 },
     { name: "Jul", total: 432000 },
     { name: "Aug", total: 431421 },
-    { name: "Sep", total: 92152 },
-    { name: "Oct", total: 21341 },
-    { name: "Nov", total: 1200 },
-    { name: "Des", total: 0 },
+    { name: "Sep", total: 922152 },
+    { name: "Oct", total: 313141 },
+    { name: "Nov", total: 1232200 },
+    { name: "Des", total: 423000 },
   ];
-   */
 
   return (
     <div className="flex-col">
@@ -94,7 +93,7 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
             </CardHeader>
 
             <CardContent className="pl-2">
-              <Overview data={graphRevenue} />
+              <Overview data={data} />
             </CardContent>
           </Card>
         </div>
