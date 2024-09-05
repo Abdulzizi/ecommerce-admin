@@ -3,7 +3,7 @@ import { MainNav } from "./main-nav";
 
 import { redirect } from "next/navigation";
 import prismadb from "@/lib/prismadb";
-import StoreSwitcher from "@/components/store-switcher";
+import StoreSwitcher from "@/components/admin/store-switcher";
 import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui/button";
 import Link from "next/link";

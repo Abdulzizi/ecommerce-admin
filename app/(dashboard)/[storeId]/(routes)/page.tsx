@@ -2,11 +2,11 @@ import { getGraphRevenue } from "@/actions/get-graph-revenue";
 import { getProductCount } from "@/actions/get-total-products";
 import { getTotalRevenue } from "@/actions/get-total-revenue";
 import { getSalesCount } from "@/actions/get-total-sales";
-import { Overview } from "@/components/overview";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heading } from "@/components/ui/heading";
-import { Separator } from "@/components/ui/separator";
-import prismadb from "@/lib/prismadb";
+import { Overview } from "@/components/admin/overview";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/admin/ui/card";
+import { Heading } from "@/components/admin/ui/heading";
+import { Separator } from "@/components/admin/ui/separator";
+
 import { formatter } from "@/lib/utils";
 import { CreditCard, DollarSign, PackageOpen } from "lucide-react";
 
@@ -20,6 +20,7 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   const totalRevenue = await getTotalRevenue(params.storeId);
   const salesCount = await getSalesCount(params.storeId);
   const productCount = await getProductCount(params.storeId);
+  
   // Graph value
   const graphRevenue = await getGraphRevenue(params.storeId);
   // console.log(graphRevenue);

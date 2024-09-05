@@ -6,15 +6,15 @@ import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { AlertModal } from "@/components/modals/alert-modal";
-import { Button } from "@/components/ui/button";
+import { AlertModal } from "@/components/admin/modals/alert-modal";
+import { Button } from "@/components/admin/ui/button";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
   DropdownMenuItem, 
   DropdownMenuLabel, 
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@/components/admin/ui/dropdown-menu";
 
 import { ProductColumn } from "./columns";
 

@@ -1,8 +1,8 @@
 "use client";
 
-import { DataTable } from "@/components/ui/data-table";
-import { Heading } from "@/components/ui/heading";
-import { Separator } from "@/components/ui/separator";
+import { DataTable } from "@/components/admin/ui/data-table";
+import { Heading } from "@/components/admin/ui/heading";
+import { Separator } from "@/components/admin/ui/separator";
 
 import { columns, OrderColumn } from "./columns";
 

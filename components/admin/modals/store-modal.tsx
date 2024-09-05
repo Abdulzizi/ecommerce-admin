@@ -8,7 +8,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 import { useStoreModal } from "@/hooks/use-store-modal";
-import { Modal } from "@/components/ui/modal";
+import { Modal } from "@/components/admin/ui/modal";
 import {
   Form,
   FormControl,
@@ -16,9 +16,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+} from "@/components/admin/ui/form";
+import { Input } from "@/components/admin/ui/input";
+import { Button } from "@/components/admin/ui/button";
 
 const formSchema = z.object({
   name: z.string().min(1),

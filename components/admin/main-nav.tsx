@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
 
 export function MainNav({
   className,
@@ -12,9 +11,6 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const params = useParams();
-
-
-  
 
   // Daftar rute navigasi utama
   const routes = [

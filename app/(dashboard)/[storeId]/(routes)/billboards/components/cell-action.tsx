@@ -4,19 +4,19 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/admin/ui/dropdown-menu";
 import { BillboardColumn } from "./columns";
 import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/admin/ui/button";
 import { CopyIcon, Edit, MoreHorizontal, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
-import { AlertModal } from "@/components/modals/alert-modal";
+import { AlertModal } from "@/components/admin/modals/alert-modal";
 
 interface CellActionProps {
   data: BillboardColumn;
